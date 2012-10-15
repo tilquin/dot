@@ -52,10 +52,6 @@ alias d="cd .."
 
 path=(/usr/local/bin $binarypath /sbin /usr/sbin $path)
 
-#if [ -f `brew --prefix`/etc/autojump ]; then
-#    . `brew --prefix`/etc/autojump
-#fi
-
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
 	export LC_ALL="en_US.utf-8"
@@ -78,9 +74,8 @@ bindkey -v             # vi key bindings
 bindkey ' ' magic-space  # also do history expansino on space
 
 alias back='cd $OLDPWD'
-alias no='ls'
 
-autoload -U compinit ; compinit
+autoload -U compinit ; compinit -u
 
 export EDITOR='vim'
 
