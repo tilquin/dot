@@ -1,0 +1,3 @@
+#!/bin/bash
+
+open http://$(git config -l | grep github | sed 's?.*=??' | sed 's?git@??' | sed 's?:?/?' | sed 's?.git??')

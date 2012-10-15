@@ -50,7 +50,7 @@ alias d="cd .."
 # Some environment variables
 #TRASH=("/home/karl/trash")
 
-path=(/usr/local/bin $binarypath /sbin /usr/sbin $path)
+path=(/usr/local/bin ~/bin $binarypath /sbin /usr/sbin $path)
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
