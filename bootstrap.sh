@@ -11,3 +11,6 @@ ln -s "Library/Configuration files/tmux.conf" .tmux.conf
 
 git clone git@github.com:gyllstromk/vim.git .vim
 ln -s .vim/vimrc .vimrc
+cd .vim
+git submodule init
+git submodule update
