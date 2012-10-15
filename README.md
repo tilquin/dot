@@ -1,1 +1,1 @@
-    curl https://raw.github.com/gyllstromk/Configuration-Files/master/bootstrap.sh | zsh
+    curl https://raw.github.com/gyllstromk/dot/master/bootstrap.sh | zsh
