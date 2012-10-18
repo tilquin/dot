@@ -75,7 +75,7 @@ bindkey ' ' magic-space  # also do history expansino on space
 
 alias back='cd $OLDPWD'
 
-autoload -U compinit ; compinit -u
+autoload -U compinit ; compinit
 
 export EDITOR='vim'
 
