@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 cd
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 mkdir -p Library
 
 git clone git@github.com:gyllstromk/dot.git "Library/dot"
