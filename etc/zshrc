@@ -54,6 +54,11 @@ path=(/usr/local/bin $configpath/bin $binarypath /sbin /usr/sbin $path)
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
+
+    if [ -f `brew --prefix`/etc/autojump ]; then
+      . `brew --prefix`/etc/autojump
+    fi
+
 	export LC_ALL="en_US.utf-8"
 	export LANG="en_US.utf-8"
 	#macports=(/opt/local/bin /opt/local/sbin)
@@ -85,9 +90,5 @@ bindkey '^R' history-incremental-search-backward
 bindkey '^S' history-incremental-search-forward
 bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
-
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
-fi
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
