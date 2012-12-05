@@ -12,4 +12,3 @@ ln -s "Library/dot/etc/zshrc" .zshrc
 ln -s "Library/dot/etc/zprofile" .zprofile
 ln -s "Library/dot/etc/tmux.conf" .tmux.conf
 ln -s .vim/vimrc .vimrc
-cd .vim
