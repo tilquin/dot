@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 cd
+curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+
 mkdir -p Library
 
 git clone https://github.com/gyllstromk/dot.git "Library/dot"
@@ -10,6 +12,3 @@ for file in Library/dot/*
 do
     ln -s $file .$(basename $file)
 done
-
-ln -s .vim/vimrc .vimrc
-cd .vim
