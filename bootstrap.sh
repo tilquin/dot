@@ -33,3 +33,5 @@ for file in Library/dot/etc/*
 do
     ln -s $file .$(basename $file)
 done
+
+ln -s .vim/vimrc .vimrc
