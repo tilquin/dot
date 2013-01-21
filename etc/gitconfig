@@ -1,0 +1,9 @@
+[diff]
+		external = git_diff_wrapper
+[pager]
+		diff =
+[user]
+	name = Karl Gyllstrom
+	email = karl.gyllstrom@gmail.com
+[core]
+	excludesfile = /Users/karl/.gitignore_global
