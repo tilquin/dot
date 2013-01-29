@@ -6,6 +6,6 @@
 	name = Karl Gyllstrom
 	email = karl.gyllstrom@gmail.com
 [core]
-	excludesfile = /Users/karl/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [push]
 	default = simple
