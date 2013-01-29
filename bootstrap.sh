@@ -19,6 +19,12 @@ then
 	brew install reattach-to-user-namespace
 fi
 
+gitpath=$(which git)
+if [[ $gitpath == '' ]]
+then
+	echo 'Git not installed'
+	exit 1
+fi
 
 cd
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
