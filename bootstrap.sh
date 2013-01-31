@@ -2,29 +2,11 @@
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
-	brewpath=$(which brew)
-	if [[ $brewpath == '' ]]
-	then
-		echo 'brew must be installed'
-		exit 1
-	fi
-
-	zshpath=$(which zsh)
-	if [[ $zshpath == '' ]]
-	then
-		echo 'zsh must be installed'
-		exit 1
-	fi
-
+	command brew || { echo >&2 "brew must be installed"; exit 1; }
 	brew install reattach-to-user-namespace
 fi
 
-gitpath=$(which git)
-if [[ $gitpath == '' ]]
-then
-	echo 'Git not installed'
-	exit 1
-fi
+command git || { echo >&2 "git must be installed"; exit 1; }
 
 cd
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
