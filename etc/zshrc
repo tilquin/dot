@@ -32,6 +32,9 @@ alias jshint=./node_modules/.bin/jshint
 alias mocha=./node_modules/.bin/mocha
 alias grunt=./node_modules/.bin/grunt
 
+alias mocha=./node_modules/.bin/mocha
+alias jshint=./node_modules/.bin/jshint
+
 binarypath="$HOME/Library/Scripts and binaries"
 configpath="$HOME/Library/dot"
 
