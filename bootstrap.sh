@@ -13,6 +13,7 @@ curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | 
 rm .zshrc
 
 mkdir -p Library
+mkdir -p ~/.Trash
 
 git clone https://github.com/gyllstromk/dot.git "Library/dot"
 git clone --recursive https://github.com/gyllstromk/vim .vim
