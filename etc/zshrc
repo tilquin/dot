@@ -16,7 +16,7 @@ export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
                               # to choose between /usr/ and /Users
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="afowler"
-plugins=(osx tmux)
+plugins=(osx)
 source $ZSH/oh-my-zsh.sh
 alias ts=trash
 
@@ -35,7 +35,6 @@ alias grunt=./node_modules/.bin/grunt
 alias mocha=./node_modules/.bin/mocha
 alias jshint=./node_modules/.bin/jshint
 
-binarypath="$HOME/Library/Scripts and binaries"
 configpath="$HOME/Library/dot"
 
 # Set up aliases
@@ -58,7 +57,7 @@ unsetopt correct_all # fuck correction it's the most annoying feature in the wor
 # Some environment variables
 #TRASH=("/home/karl/trash")
 
-path=(/usr/local/bin $configpath/bin $binarypath /sbin /usr/sbin $path)
+path=(/usr/local/bin $configpath/bin /sbin /usr/sbin $path)
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
