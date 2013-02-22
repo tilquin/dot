@@ -12,6 +12,12 @@ cd
 curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
 rm .zshrc
 
+if [[ $USER == "ubuntu" ]]
+then
+# we're on ec2
+	sudo chsh /bin/zsh
+fi
+
 mkdir -p Library
 mkdir -p ~/.Trash
 
