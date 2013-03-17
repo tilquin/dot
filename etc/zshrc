@@ -31,7 +31,6 @@ export PYTHONSTARTUP=~/.pystartup
 export NODE_PATH=/usr/local/lib/node_modules
 path=(/usr/local/share/npm/bin $path)
 
-binarypath="$HOME/Library/Scripts and binaries"
 configpath="$HOME/Library/dot"
 
 # Set up aliases
@@ -54,7 +53,7 @@ unsetopt correct_all # fuck correction it's the most annoying feature in the wor
 # Some environment variables
 #TRASH=("/home/karl/trash")
 
-path=(/usr/local/bin $configpath/bin $binarypath /sbin /usr/sbin $path)
+path=(/usr/local/bin $configpath/bin /sbin /usr/sbin $path)
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
