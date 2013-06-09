@@ -1,4 +1,4 @@
-%w(git vim tmux curl).each do |pkg|
+%w(git zsh vim tmux).each do |pkg|
   package pkg
 end
 
