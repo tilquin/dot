@@ -31,6 +31,7 @@ path=(/usr/local/share/npm/bin $path)
 alias jshint=./node_modules/.bin/jshint
 alias mocha=./node_modules/.bin/mocha
 alias grunt=./node_modules/.bin/grunt
+[ -r ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
 
 alias mocha=./node_modules/.bin/mocha
 alias jshint=./node_modules/.bin/jshint
@@ -100,3 +101,5 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
