@@ -20,6 +20,8 @@ plugins=(osx)
 source $ZSH/oh-my-zsh.sh
 alias ts=trash
 
+setopt NO_BEEP
+
 # python
 alias dev="if [ ! -e env/dev ]; then; mkdir -p env; virtualenv --distribute env/dev; fi; source ./env/dev/bin/activate"
 export PYTHONPATH=.
