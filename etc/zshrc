@@ -59,6 +59,8 @@ unsetopt correct_all # fuck correction it's the most annoying feature in the wor
 #TRASH=("/home/karl/trash")
 
 path=(/usr/local/bin $configpath/bin /sbin /usr/sbin $path)
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
@@ -68,8 +70,6 @@ then
       . `brew --prefix`/etc/autojump
     fi
 
-	export LC_ALL="en_US.utf-8"
-	export LANG="en_US.utf-8"
 	#macports=(/opt/local/bin /opt/local/sbin)
 	path=(/usr/local/Cellar/ruby/1.9.3-p194/bin $path)
 	alias gvim=open -a MacVim
