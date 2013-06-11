@@ -15,7 +15,7 @@ rm .zshrc
 if [[ $USER == "ubuntu" ]]
 then
 # we're on ec2
-	sudo chsh /bin/zsh
+	sudo chsh -s /bin/zsh $USER
 fi
 
 mkdir -p Library
