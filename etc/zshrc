@@ -70,15 +70,15 @@ then
       . `brew --prefix`/etc/autojump
     fi
 
-	#macports=(/opt/local/bin /opt/local/sbin)
-	path=(/usr/local/Cellar/ruby/1.9.3-p194/bin $path)
-	alias gvim=open -a MacVim
-	alias top="top -o cpu"
-	alias ls='ls -G'
+    #macports=(/opt/local/bin /opt/local/sbin)
+    path=(/usr/local/Cellar/ruby/1.9.3-p194/bin $path)
+    alias gvim=open -a MacVim
+    alias top="top -o cpu"
+    alias ls='ls -G'
 #    export LSCOLORS=ExFxBxDxCxegedabagacad
 #    export LSCOLORS=ExFxCxDxHxegedabagacad
 else
-	alias ls='ls --color=tty'
+    alias ls='ls --color=tty'
     export LS_COLORS="di=34;40:ln=35;40:so=32;40:pi=33;40:ex=37;40:bd=34;46:cd=34;43:su=0;41:sg=0;46:tw=0;42:ow=0;43":
 fi
 
