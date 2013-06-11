@@ -21,8 +21,8 @@ fi
 mkdir -p Library
 mkdir -p ~/.Trash
 
-git clone https://github.com/gyllstromk/dot.git "Library/dot"
-git clone --recursive https://github.com/gyllstromk/vim .vim
+git clone git@github.com:gyllstromk/dot.git "Library/dot"
+git clone --recursive git@github.com:gyllstromk/vim.git .vim
 
 for file in Library/dot/etc/*
 do
