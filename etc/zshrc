@@ -50,7 +50,7 @@ alias d="cd .."
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
 
 # Set prompts
-if [ $SHLVL -gt 1 ]
+if [ $SHLVL -gt 2 ]
 then
  export PROMPT="($SHLVL) $PROMPT"
 fi
