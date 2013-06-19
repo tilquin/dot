@@ -1,4 +1,4 @@
-%w(git zsh vim tmux).each do |pkg|
+%w(git zsh vim tmux autojump).each do |pkg|
   package pkg
 end
 
