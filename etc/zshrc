@@ -34,7 +34,7 @@ alias jshint=./node_modules/.bin/jshint
 alias mocha=./node_modules/.bin/mocha
 alias grunt=./node_modules/.bin/grunt
 [ -r ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh
-nvm use v0.8.24 > /dev/null
+nvm use v0.8.25 > /dev/null
 
 alias mocha=./node_modules/.bin/mocha
 alias jshint=./node_modules/.bin/jshint
