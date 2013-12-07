@@ -7,3 +7,5 @@
 	email = karl.gyllstrom@gmail.com
 [core]
 	excludesfile = ~/.gitignore_global
+[push]
+	default = simple
