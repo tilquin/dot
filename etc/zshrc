@@ -59,7 +59,7 @@ fi
 # Some environment variables
 #TRASH=("/home/karl/trash")
 
-path=(~/bin /usr/local/bin $configpath/bin /sbin /usr/sbin $path)
+path=(~/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
