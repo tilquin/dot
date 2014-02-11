@@ -2,6 +2,6 @@
 
 url=$(git config -l | grep remote.origin.url | sed 's?.*=??' | sed 's?.*@??' | sed 's?:?/?' | sed 's?.*//??' | sed 's?.git??')
 branch=$(git status | grep 'On branch' | sed 's?# On branch ??')
-open https://$url/blob/$branch/$1
+open https://$url/tree/$branch/$1
 
 
