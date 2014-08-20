@@ -20,7 +20,7 @@ fi
 mkdir -p Library
 mkdir -p ~/.Trash
 
-git clone --recursive https://github.com/gyllstromk/dot.git "Library/dot"
+git clone --recursive https://github.com/tilquin/dot.git "Library/dot"
 git clone https://github.com/tilquin/gitastic.git "Library/dot/git"
 git clone --recursive https://github.com/gyllstromk/vim.git .vim
 

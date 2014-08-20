@@ -76,7 +76,7 @@ then
 #    export LSCOLORS=ExFxBxDxCxegedabagacad
 #    export LSCOLORS=ExFxCxDxHxegedabagacad
 else
-    . /usr/share/autojump/autojump.sh
+    [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
 fi
 
 export TRASH="$HOME/.Trash"
