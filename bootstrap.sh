@@ -2,7 +2,7 @@
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
-	command -v brew > /dev/null 2>&1 || { echo >&2 "brew must be installed"; exit 1; }
+	command -v brew > /dev/null 2>&1 || { /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" }
 	brew install reattach-to-user-namespace
 fi
 
