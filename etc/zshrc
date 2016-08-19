@@ -68,8 +68,9 @@ then
 
     [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-    #macports=(/opt/local/bin /opt/local/sbin)
-    path=(/usr/local/Cellar/ruby/1.9.3-p194/bin $path)
+    # use gnu replacements for mac utils
+    path=($(brew --prefix coreutils)/libexec/gnubin $path)
+    MANPATH="$(brew --prefix coreutils)/libexec/gnuman:$MANPATH"
     alias gvim=open -a MacVim
     alias top="top -o cpu"
     alias ls='ls -G'
