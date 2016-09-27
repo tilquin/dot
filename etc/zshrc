@@ -27,17 +27,6 @@ alias dev="if [ ! -e env/dev ]; then; mkdir -p env; virtualenv --distribute env/
 export PYTHONPATH=.
 export PYTHONSTARTUP=~/.pystartup
 
-# node
-export NODE_PATH=/usr/local/lib/node_modules
-path=(/usr/local/share/npm/bin $path)
-alias jshint=./node_modules/.bin/jshint
-alias mocha=./node_modules/.bin/mocha
-alias grunt=./node_modules/.bin/grunt
-[ -r ~/.nvm/nvm.sh ] && source ~/.nvm/nvm.sh && nvm use 0.10 > /dev/null
-
-alias mocha=./node_modules/.bin/mocha
-alias jshint=./node_modules/.bin/jshint
-
 configpath="$HOME/Library/dot"
 
 # Set up aliases
@@ -99,5 +88,8 @@ bindkey '^P' history-search-backward
 bindkey '^N' history-search-forward  
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+for file in $configpath/etc/zshrc_/*
+    . $file
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
