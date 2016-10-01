@@ -28,11 +28,9 @@ mkdir -p ~/.Trash
 
 git clone --recursive https://github.com/tilquin/dot.git "Library/dot"
 git clone https://github.com/tilquin/gitastic.git "Library/dot/git"
-git clone --recursive https://github.com/gyllstromk/vim.git .vim
+git clone https://github.com/gyllstromk/vim.git .vim
 
-for file in Library/dot/etc/*
+for file in Library/dot/etc/* .vim/vimrc
 do
     ln -s $file .$(basename $file)
 done
-
-ln -s .vim/vimrc .vimrc
