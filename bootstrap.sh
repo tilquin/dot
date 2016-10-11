@@ -9,6 +9,7 @@ then
     brew install zsh
     brew install vim --override-system-vi
 	brew install reattach-to-user-namespace
+    brew install clipper && brew services start clipper
 	brew install trash
 fi
 
