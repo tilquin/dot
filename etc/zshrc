@@ -2,12 +2,7 @@
 # /etc/zshrc is sourced in interactive shells.  It
 # should contain commands to set up aliases, functions,
 # options, key bindings, etc.
-#
 
-# greeting for me
-
-#/usr/games/fortune -s
-#
 [[ -r .zshrc_/local_before.zshrc ]] && . .zshrc_/local_before.zshrc
 
 # oh-my-zsh
@@ -23,10 +18,6 @@ alias ts=trash
 
 setopt NO_BEEP
 
-# python
-alias dev="if [ ! -e env/dev ]; then; mkdir -p env; virtualenv --distribute env/dev; fi; source ./env/dev/bin/activate"
-export PYTHONPATH=.
-export PYTHONSTARTUP=~/.pystartup
 
 configpath="$HOME/Library/dot"
 
@@ -35,7 +26,6 @@ configpath="$HOME/Library/dot"
 alias igrep='grep -i'
 alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
 alias rrm=\"/bin/rm\" # no spelling correction on mkdir
-alias d="cd .."
 
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
 
@@ -46,7 +36,6 @@ then
 fi
 
 # Some environment variables
-#TRASH=("/home/karl/trash")
 
 path=(~/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
 export LC_ALL="en_US.UTF-8"
