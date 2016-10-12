@@ -12,7 +12,7 @@ export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
                               # to choose between /usr/ and /Users
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="afowler"
-plugins=(osx)
+plugins=(osx fasd hg)
 source $ZSH/oh-my-zsh.sh
 alias ts=trash
 
