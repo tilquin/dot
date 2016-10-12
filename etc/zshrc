@@ -8,6 +8,7 @@
 
 #/usr/games/fortune -s
 #
+[[ -r .zshrc_/local_before.zshrc ]] && . .zshrc_/local_before.zshrc
 
 # oh-my-zsh
 
@@ -91,3 +92,5 @@ for file in $configpath/etc/zshrc_/*
     . $file
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+[[ -r .zshrc_/local_after.zshrc ]] && . .zshrc_/local_after.zshrc
