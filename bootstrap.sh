@@ -3,13 +3,13 @@
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
 	command -v brew > /dev/null 2>&1 || { /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" }
-    brew install coreutils
-    brew install binutils
-    brew install findutils
-    brew install zsh
-    brew install vim --override-system-vi
-	brew install reattach-to-user-namespace
-    brew install clipper && brew services start clipper
+  brew install coreutils
+  brew install binutils
+  brew install findutils
+  brew install zsh
+  brew install vim --override-system-vi
+  brew install reattach-to-user-namespace
+  brew install clipper && brew services start clipper
 	brew install trash
 fi
 
