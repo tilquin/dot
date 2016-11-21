@@ -9,10 +9,11 @@ then
     brew install zsh
     brew install ack
     brew install vim --override-system-vi
-	brew install reattach-to-user-namespace
+    brew install reattach-to-user-namespace
     brew install clipper && brew services start clipper
     brew install fasd
-	brew install trash
+    brew install trash
+    brew install Caskroom/cask/iterm2
 fi
 
 command -v git > /dev/null 2>&1 || { echo >&2 "git must be installed"; exit 1; }
