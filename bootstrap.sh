@@ -14,6 +14,8 @@ then
     brew install fasd
     brew install trash
     brew install Caskroom/cask/iterm2
+    brew install Caskroom/cask/flycut 
+    brew install Caskroom/cask/flux
 fi
 
 command -v git > /dev/null 2>&1 || { echo >&2 "git must be installed"; exit 1; }
