@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+cmd="/bin/nc localhost 8377"
+
+if [ $# -gt 0 ]
+then
+  echo $* | eval $cmd
+else
+  eval $cmd
+fi
