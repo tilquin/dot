@@ -16,6 +16,9 @@ then
     brew cask install iterm2
     brew cask install flycut 
     brew cask install flux
+
+    defaults write -app Flycut loadOnStartup 1
+    defaults write -app Flycut "ShortcutRecorder mainHotkey" '{ "keyCode" = 9 ; "modifierFlags" = 1310720; }'
 fi
 
 command -v git > /dev/null 2>&1 || { echo >&2 "git must be installed"; exit 1; }
