@@ -43,3 +43,6 @@ for file in Library/dot/etc/* .vim/vimrc
 do
     ln -s $file .$(basename $file)
 done
+
+mkdir -p .config
+ln -s ~/.vim .config/nvim
