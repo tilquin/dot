@@ -74,16 +74,19 @@ fi
 
 # vi style incremental search
 
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
-#bindkey '^P' history-incremental-pattern-search-backward
-#bindkey '^N' history-incremental-pattern-search-forward
-bindkey "^P" vi-up-line-or-history
-bindkey "^N" vi-down-line-or-history
-bindkey -M vicmd '/' history-incremental-pattern-search-backward
+# Better searching in command mode
 bindkey -M vicmd '?' history-incremental-pattern-search-forward
-#bindkey '^P' history-search-backward
-#bindkey '^N' history-search-forward  
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M viins '^K' history-incremental-pattern-search-backward
+bindkey -M viins '^J' history-incremental-pattern-search-forward
+
+# Beginning search with arrow keys
+bindkey "^[OA" up-line-or-beginning-search
+bindkey "^[OB" down-line-or-beginning-search
+bindkey -M vicmd "k" up-line-or-beginning-search
+bindkey -M vicmd "j" down-line-or-beginning-search
+
+export KEYTIMEOUT=1
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
