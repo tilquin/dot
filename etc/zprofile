@@ -1,1 +1,15 @@
 [[ -r ~/.zshrc ]] && . ~/.zshrc
+
+# Setting PATH for Python 3.11
+# The original version is saved in .zprofile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.11/bin:${PATH}"
+export PATH
+
+##
+# Your previous /Users/karl/.zprofile file was backed up as /Users/karl/.zprofile.macports-saved_2022-12-16_at_07:36:23
+##
+
+# MacPorts Installer addition on 2022-12-16_at_07:36:23: adding an appropriate PATH variable for use with MacPorts.
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+# Finished adapting your PATH environment variable for use with MacPorts.
+
