@@ -2,7 +2,7 @@
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
-    command -v brew > /dev/null 2>&1 || { /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" }
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     brew install coreutils binutils findutils zsh ack nvim fasd trash
     brew install iterm2 flycut --cask
 
