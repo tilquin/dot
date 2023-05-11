@@ -87,3 +87,7 @@ for file in $configpath/etc/zshrc_/*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -r .zshrc_/local_after.zshrc ]] && . .zshrc_/local_after.zshrc
+
+alias da="d a"
+alias dh="d | head"
+alias dl="d | less"
