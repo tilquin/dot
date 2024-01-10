@@ -36,7 +36,7 @@ fi
 
 # Some environment variables
 
-path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
+path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path ~/homebrew/bin ~/homebrew/sbin)
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US.UTF-8"
 
@@ -74,10 +74,16 @@ fi
 
 # vi style incremental search
 
-bindkey '^R' history-incremental-search-backward
-bindkey '^S' history-incremental-search-forward
-bindkey '^P' history-search-backward
-bindkey '^N' history-search-forward  
+bindkey '^R' history-incremental-pattern-search-backward
+bindkey '^S' history-incremental-pattern-search-forward
+#bindkey '^P' history-incremental-pattern-search-backward
+#bindkey '^N' history-incremental-pattern-search-forward
+bindkey "^P" vi-up-line-or-history
+bindkey "^N" vi-down-line-or-history
+bindkey -M vicmd '/' history-incremental-pattern-search-backward
+bindkey -M vicmd '?' history-incremental-pattern-search-forward
+#bindkey '^P' history-search-backward
+#bindkey '^N' history-search-forward  
 
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
 
@@ -87,7 +93,3 @@ for file in $configpath/etc/zshrc_/*
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -r .zshrc_/local_after.zshrc ]] && . .zshrc_/local_after.zshrc
-
-alias da="d a"
-alias dh="d | head"
-alias dl="d | less"
