@@ -27,7 +27,7 @@ git clone --recursive https://github.com/tilquin/dot.git "Library/dot"
 git clone https://github.com/tilquin/gitastic.git "Library/dot/git"
 git clone https://github.com/gyllstromk/vim.git .vim
 
-for file in Library/dot/etc/* .vim/vimrc
+for file in Library/dot/etc/*
 do
     ln -s $file .$(basename $file)
 done
