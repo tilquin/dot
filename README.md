@@ -1,3 +1,3 @@
 Bootstrap my dot files on Mac, Linux, and EC2
 
-    curl https://raw.githubusercontent.com/tilquin/dot/master/bootstrap.sh | zsh
+    /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/tilquin/dot/master/bootstrap.sh)"
