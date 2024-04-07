@@ -3,8 +3,8 @@
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    brew install coreutils binutils findutils zsh ack nvim fasd trash
-    brew install iterm2 flycut --cask
+    /opt/homebrew/bin/brew install coreutils binutils findutils zsh ack nvim fasd trash
+    /opt/homebrew/bin/brew install iterm2 flycut --cask
 
     defaults write -app Flycut loadOnStartup 1
     defaults write -app Flycut "ShortcutRecorder mainHotkey" '{ "keyCode" = 9 ; "modifierFlags" = 1310720; }'
