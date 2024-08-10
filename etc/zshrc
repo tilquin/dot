@@ -3,7 +3,10 @@
 # should contain commands to set up aliases, functions,
 # options, key bindings, etc.
 
+path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
 [[ -r .zshrc_/local_before.zshrc ]] && . .zshrc_/local_before.zshrc
+
+stty -ixon
 
 # oh-my-zsh
 
@@ -24,7 +27,6 @@ configpath="$HOME/Library/dot"
 
 alias igrep='grep -i'
 alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
-alias rrm=\"/bin/rm\" # no spelling correction on mkdir
 
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
 
@@ -100,3 +102,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 alias d=todo.py
+
+alias hgn="hg next"
+alias hgp="hg prev"
