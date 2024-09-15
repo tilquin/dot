@@ -1,7 +1,7 @@
 [diff]
-		external = git vimdiff
+  external = git vimdiff
 [pager]
-		diff =
+  diff =
 [user]
 	name = Karl Gyllstrom
 	email = karl.gyllstrom@gmail.com
