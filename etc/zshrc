@@ -40,13 +40,14 @@ fi
 
 # Some environment variables
 
-path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
+path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
 export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-7"
+export LANG=en_US.UTF8
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
     [[ -r .zshrc_/mac.sh ]] && . .zshrc_/mac.sh
+  path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
 else
     [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
 fi
@@ -81,11 +82,11 @@ bindkey -M viins '^J' history-incremental-pattern-search-forward
 
 export KEYTIMEOUT=1
 
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
-
 for file in $configpath/etc/zshrc_/*
     . $file
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -r .zshrc_/local_after.zshrc ]] && . .zshrc_/local_after.zshrc
+
+export HISTSIZE=100000
