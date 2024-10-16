@@ -4,7 +4,8 @@
 # options, key bindings, etc.
 
 path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
-[[ -r .zshrc_/local_before.zshrc ]] && . .zshrc_/local_before.zshrc
+zsh_config_path=~/.zshrc_
+[[ -r $zsh_config_path/local_before.zshrc ]] && . $zsh_config_path/local_before.zshrc
 
 stty -ixon
 
@@ -16,7 +17,7 @@ export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="afowler"
 plugins=(macos fasd)
-[[ -r .zshrc_/oh-my-zsh.sh ]] && . .zshrc_/oh-my-zsh.sh
+[[ -r ~/.oh-my-zsh/oh-my-zsh.sh ]] && . ~/.oh-my-zsh/oh-my-zsh.sh
 #alias ts=trash
 
 setopt NO_BEEP
@@ -46,8 +47,8 @@ export LANG=en_US.UTF8
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
-    [[ -r .zshrc_/mac.sh ]] && . .zshrc_/mac.sh
-  path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
+    [[ -r $zsh_config_path/mac.sh ]] && . $zsh_config_path/mac.sh
+    path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
 else
     [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
 fi
@@ -82,11 +83,8 @@ bindkey -M viins '^J' history-incremental-pattern-search-forward
 
 export KEYTIMEOUT=1
 
-for file in $configpath/etc/zshrc_/*
-    . $file
-
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -r .zshrc_/local_after.zshrc ]] && . .zshrc_/local_after.zshrc
+[[ -r $zsh_config_path/local_after.zshrc ]] && . $zsh_config_path/local_after.zshrc
 
 export HISTSIZE=100000
