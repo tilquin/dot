@@ -3,6 +3,8 @@
 # should contain commands to set up aliases, functions,
 # options, key bindings, etc.
 
+configpath="$HOME/Library/dot"
+
 path=(~/bin ~/Library/dot/bin /usr/local/bin $configpath/git /sbin /usr/sbin $path)
 ZSHRC_PATH=~/.zshrc_
 [[ -r $ZSHRC_PATH/local_before.zshrc ]] && . $ZSHRC_PATH/local_before.zshrc
@@ -14,16 +16,13 @@ stty -ixon
 export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
                               # more annoying then hitting /us<tab> and having
                               # to choose between /usr/ and /Users
-ZSH=$HOME/.oh-my-zsh
+OMZSH=$HOME/.oh-my-zsh
 ZSH_THEME="afowler"
 plugins=(macos fasd)
-[[ -r $ZSHRC_PATH/oh-my-zsh.sh ]] && . $ZSHRC_PATH/oh-my-zsh.sh
+[[ -r $OMZSH/oh-my-zsh.sh ]] && . $OMZSH/oh-my-zsh.sh
 #alias ts=trash
 
 setopt NO_BEEP
-
-
-configpath="$HOME/Library/dot"
 
 # Set up aliases
 

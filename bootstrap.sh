@@ -26,6 +26,7 @@ mkdir -p ~/.Trash
 git clone --recursive https://github.com/tilquin/dot.git "Library/dot"
 git clone https://github.com/tilquin/gitastic.git "Library/dot/git"
 git clone https://github.com/gyllstromk/vim.git .vim
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 for file in Library/dot/etc/*
 do
