@@ -1,0 +1,32 @@
+[ui]
+username = Karl Gyllstrom <gylls@fb.com>
+ignore.myignore = ~/.hgignore
+ignore = ~/.hgignore
+
+[extdiff]
+cmd.vimdiff =
+
+[alias]
+bo = bookmarks
+pop = strip --keep -r .
+ra = !$HG resolve --all --mark
+mc = !$HG resolve --all --mark && $HG rebase --continue
+mst = rebase -s . -d master
+# filediff =!echo sup $1
+filediff =!if [ -z $1 ]; then hg status --change .; else hg status --change $1 ; fi
+fd = filediff $1
+touch = !$HG status --change . | sed 's?^. ??'
+rc = !$HG resolve --all --mark && $HG rebase --continue
+dp = diff -r .^
+vi = !$HG fd | sed 's?^.\s??' | xargs nvim -o
+getlast = !$HG my | head -1
+my = !$HG sl 2> /dev/null | grep $USER | sed 's?.* \([a-z0-9]\{10\}\) .*?\1?'
+last = !$HG checkout $($HG getlast)
+tm = rebase -s . -d master
+an = !zsh -c 'hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1?"'
+#an = !zsh -c 'if [`hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1?"` = $1]; then echo 1 else echo 0; fi'
+d = !$HG log -r . | head -1 | sed 's?.* D?D?' | sed 's? .*??'
+p = prev
+
+[hint]
+ack = hgignore-deprecate
