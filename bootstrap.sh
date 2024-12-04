@@ -17,7 +17,7 @@ rm .zshrc
 
 if [[ $OSTYPE[0,5] == "linux" ]]
 then
-	sudo chsh -s /bin/zsh $USER
+    sudo chsh -s /bin/zsh $USER
 fi
 
 mkdir -p Library
