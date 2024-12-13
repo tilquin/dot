@@ -25,9 +25,10 @@ alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
 alias rrm=\"/bin/rm\" # no spelling correction on mkdir
 
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
+setopt interactivecomments  # o/w mac thinks comments are commands
+alias ls='ls --color=auto'
 
-PS1='%m %B%F{blue}:: %b%F{green}%3~ %B%(!.%F{red}.%F{blue})»%f%b '
-
+export PROMPT="%m :: %F{green}%~ %F{reset_color}» "
 
 # Set prompts
 if [ $SHLVL -gt 2 ]
