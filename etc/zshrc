@@ -11,15 +11,9 @@ ZSHRC_PATH=~/.zshrc_
 
 stty -ixon
 
-# oh-my-zsh
-
 export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
                               # more annoying then hitting /us<tab> and having
                               # to choose between /usr/ and /Users
-OMZSH=$HOME/.oh-my-zsh
-ZSH_THEME="afowler"
-plugins=(macos fasd)
-[[ -r $OMZSH/oh-my-zsh.sh ]] && . $OMZSH/oh-my-zsh.sh
 #alias ts=trash
 
 setopt NO_BEEP
@@ -31,6 +25,9 @@ alias mkdir='nocorrect mkdir' # no spelling correction on mkdir
 alias rrm=\"/bin/rm\" # no spelling correction on mkdir
 
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
+
+PS1='%m %B%F{blue}:: %b%F{green}%3~ %B%(!.%F{red}.%F{blue})»%f%b '
+
 
 # Set prompts
 if [ $SHLVL -gt 2 ]
