@@ -3,7 +3,7 @@
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    /opt/homebrew/bin/brew install coreutils binutils findutils zsh ack nvim fasd trash
+    /opt/homebrew/bin/brew install coreutils binutils findutils zsh ack nvim fasd trash zoxide
     /opt/homebrew/bin/brew install iterm2 flycut --cask
 
     defaults write -app Flycut loadOnStartup 1

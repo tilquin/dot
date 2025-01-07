@@ -14,7 +14,6 @@ stty -ixon
 export CASE_SENSITIVE="true"  # why would you not use this by default? nothing
                               # more annoying then hitting /us<tab> and having
                               # to choose between /usr/ and /Users
-#alias ts=trash
 
 setopt NO_BEEP
 
@@ -45,7 +44,7 @@ export LANG=en_US.UTF8
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
   path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
-    [[ -r $ZSHRC_PATH/mac.sh ]] && . $ZSHRC_PATH/mac.sh
+  [[ -r $ZSHRC_PATH/mac.sh ]] && . $ZSHRC_PATH/mac.sh
 else
     [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
 fi
