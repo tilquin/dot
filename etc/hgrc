@@ -27,6 +27,7 @@ an = !zsh -c 'hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1
 #an = !zsh -c 'if [`hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1?"` = $1]; then echo 1 else echo 0; fi'
 d = !$HG log -r . | head -1 | sed 's?.* D?D?' | sed 's? .*??'
 p = prev
+old = cloud sl
 
 [hint]
 ack = hgignore-deprecate
