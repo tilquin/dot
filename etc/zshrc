@@ -83,6 +83,10 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 [[ -r $ZSHRC_PATH/local_after.zshrc ]] && . $ZSHRC_PATH/local_after.zshrc
 
- export HISTFILE=$HOME/.zsh_history
-export SAVEHIST=100000
-export HISTSIZE=100000
+export HISTFILE=$HOME/.zsh_history
+export SAVEHIST=100000000
+export HISTSIZE=100000000
+
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt SHARE_HISTORY
