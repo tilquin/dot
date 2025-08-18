@@ -2,3 +2,4 @@ git
 etc/zshrc_/local_before.zshrc
 etc/zshrc_/local_after.zshrc
 *.un~
+etc/zshrc_/zsh-histdb
