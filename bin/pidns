@@ -1,0 +1,21 @@
+#!/bin/zsh
+
+# Define the network service you are using (e.g., Wi-Fi)
+NETWORK_SERVICE="Wi-Fi"
+
+# Define the temporary DNS server (e.g., Google's DNS)
+TEMP_DNS="8.8.8.8"
+
+# Change DNS to the temporary DNS
+networksetup -setdnsservers "$NETWORK_SERVICE" "$TEMP_DNS"
+if [[ $? != 0 ]]; then
+  exit 1
+fi
+echo "DNS changed to $TEMP_DNS"
+
+# Wait for a specified duration (e.g., 5 minutes)
+sleep 300
+
+# Remove manually assigned DNS to revert to DHCP-provided DNS
+networksetup -setdnsservers "$NETWORK_SERVICE" "Empty"
+echo "DNS settings cleared, reverting to DHCP-provided DNS"
