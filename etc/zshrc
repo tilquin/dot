@@ -43,10 +43,16 @@ export LANG=en_US.UTF8
 
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
-  path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
-  [[ -r $ZSHRC_PATH/mac.sh ]] && . $ZSHRC_PATH/mac.sh
+    path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
+    [[ -r $zsh_config_path/mac.sh ]] && . $zsh_config_path/mac.sh
 else
     [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
+
+    # Beginning search with arrow keys
+    bindkey "^[OA" up-line-or-beginning-search
+    bindkey "^[OB" down-line-or-beginning-search
+    bindkey -M vicmd "k" up-line-or-beginning-search
+    bindkey -M vicmd "j" down-line-or-beginning-search
 fi
 
 source $HOME/.zshrc_/zsh-histdb/sqlite-history.zsh
