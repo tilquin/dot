@@ -30,10 +30,10 @@ alias ls='ls --color=auto'
 export PROMPT="%m :: %F{green}%~ %F{reset_color}» "
 
 # Set prompts
-if [ $SHLVL -gt 2 ]
-then
- export PROMPT="($SHLVL) $PROMPT"
-fi
+#if [ $SHLVL -gt 2 ]
+#then
+ #export PROMPT="($SHLVL) $PROMPT"
+#fi
 
 # Some environment variables
 
@@ -48,6 +48,9 @@ then
 else
     [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
 fi
+
+source $HOME/.zshrc_/zsh-histdb/sqlite-history.zsh
+autoload -Uz add-zsh-hook
 
 export TRASH="$HOME/.Trash"
 
@@ -87,6 +90,7 @@ export HISTFILE=$HOME/.zsh_history
 export SAVEHIST=100000000
 export HISTSIZE=100000000
 
+setopt EXTENDED_HISTORY
 setopt APPEND_HISTORY
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
