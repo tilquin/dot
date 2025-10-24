@@ -25,6 +25,9 @@ alias rrm=\"/bin/rm\" # no spelling correction on mkdir
 
 unsetopt correct_all # fuck correction it's the most annoying feature in the world
 setopt interactivecomments  # o/w mac thinks comments are commands
+
+alias grep='grep --color=always'
+alias less='less -R'
 alias ls='ls --color=auto'
 
 export PROMPT="%m :: %F{green}%~ %F{reset_color}» "
@@ -50,8 +53,8 @@ else
     eval "$(zoxide init zsh --cmd j)"
 fi
 
-source $HOME/.zshrc_/zsh-histdb/sqlite-history.zsh
-autoload -Uz add-zsh-hook
+# source $HOME/.zshrc_/zsh-histdb/sqlite-history.zsh
+# autoload -Uz add-zsh-hook
 
 export TRASH="$HOME/.Trash"
 
