@@ -46,13 +46,8 @@ then
     path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
     [[ -r $zsh_config_path/mac.sh ]] && . $zsh_config_path/mac.sh
 else
-    [[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
-
-    # Beginning search with arrow keys
-    bindkey "^[OA" up-line-or-beginning-search
-    bindkey "^[OB" down-line-or-beginning-search
-    bindkey -M vicmd "k" up-line-or-beginning-search
-    bindkey -M vicmd "j" down-line-or-beginning-search
+    #[[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
+    eval "$(zoxide init zsh --cmd j)"
 fi
 
 source $HOME/.zshrc_/zsh-histdb/sqlite-history.zsh
