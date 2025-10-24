@@ -47,7 +47,7 @@ export LANG=en_US.UTF8
 if [[ $OSTYPE[0,6] == "darwin" ]]
 then
     path=($path ~/homebrew/bin ~/homebrew/sbin /opt/homebrew/bin)
-    [[ -r $zsh_config_path/mac.sh ]] && . $zsh_config_path/mac.sh
+    [[ -r $ZSHRC_PATH/mac.sh ]] && . $ZSHRC_PATH/mac.sh
 else
     #[[ -r /usr/share/autojump/autojump.sh ]] && . /usr/share/autojump/autojump.sh
     eval "$(zoxide init zsh --cmd j)"
