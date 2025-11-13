@@ -1,0 +1,3 @@
+font-meslo-lg-nerd-font
+iterm2
+maccy
