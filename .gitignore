@@ -3,3 +3,24 @@ etc/zshrc_/local_before.zshrc
 etc/zshrc_/local_after.zshrc
 *.un~
 etc/zshrc_/zsh-histdb
+
+# Host-specific config belongs outside the repo; also guard against local copies.
+dot-local/
+*.local
+
+# Terminal snapshots and interactive history are not portable configuration.
+*.itermexport
+*_history*
+*.history
+.history
+.zhistory
+.Rhistory
+.viminfo
+*.shada*
+history_archive/
+history_archives/
+*history*.sqlite*
+*history*.db*
+*histdb*.sqlite*
+*histdb*.db*
+**/zsh-histdb/

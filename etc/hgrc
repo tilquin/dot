@@ -1,5 +1,7 @@
+%include ~/.config/dot-local/slrc.before
+
 [ui]
-username = Karl Gyllstrom <gylls@fb.com>
+username = Karl Gyllstrom <karl.gyllstrom@gmail.com>
 ignore.myignore = ~/.hgignore
 ignore = ~/.hgignore
 
@@ -30,9 +32,16 @@ an = !zsh -c 'hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1
 #an = !zsh -c 'if [`hg log -r "ancestor(.,$1)"  | head -1 | sed "s?.* \(D[^ ]*\) .*?\1?"` = $1]; then echo 1 else echo 0; fi'
 d = !$HG log -r . | head -1 | sed 's?.* D?D?' | sed 's? .*??'
 p = prev
+n = next
 old = cloud sl
 he = histedit
 lc = update "max(descendants(.) and not closed())"
+cur = log -r .
+tag = log -r 'last(ancestors(.) & public())' -T '{join(remotenames,",")}\n'
+srb = rebase -s . -d 'last(ancestors(.) & public())'
+s = sl -r .
 
 [hint]
 ack = hgignore-deprecate
+
+%include ~/.config/dot-local/slrc.after

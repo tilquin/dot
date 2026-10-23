@@ -66,3 +66,23 @@ the output location for testing. `make test` runs selection tests without
 changing audio output.
 
 macOS may require re-enabling the app's permissions after rebuilding it.
+
+## Private overrides
+
+Keep host-specific configuration outside this repository in
+`~/.config/dot-local/`. The shared Sapling / Mercurial config includes
+`slrc.before` first and `slrc.after` last. Missing files are harmless; later
+settings override earlier ones. Use the local files for host-specific identities,
+repository bookmarks, paths, and pull aliases, not the shared `etc/hgrc`.
+
+On Sapling installations that use a separate native user config (find it with
+`sl configfile --user`), add `%include ~/.slrc` there to load the shared config
+and its overlays. Keep native host-specific settings outside the repository.
+
+The shell has equivalent optional `local_before.zshrc` and `local_after.zshrc`
+hooks, which are Git-ignored. Private overlays need to be provisioned separately;
+bootstrap does not generate or copy them.
+
+Terminal exports, interactive history, history archives, and history databases
+are excluded from Git. These exclusions do not remove anything from existing
+Git history.
