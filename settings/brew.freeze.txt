@@ -1,8 +1,0 @@
-ack
-binutils
-coreutils
-findutils
-neovim
-trash
-zoxide
-zsh

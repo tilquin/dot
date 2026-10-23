@@ -1,0 +1,16 @@
+#!/bin/zsh
+set -eu
+
+# Resolve this script's repository, including when launched through a symlink.
+task_repo_dir="${0:A:h:h}"
+
+brew bundle dump --file="$task_repo_dir/Brewfile" --force --no-describe --no-restart
+print 'Review the Brewfile diff for unwanted packages or company taps before committing.'
+
+if git -C "$task_repo_dir" ls-files --error-unmatch -- Brewfile > /dev/null 2>&1
+then
+    git -C "$task_repo_dir" diff -- Brewfile
+else
+    # An untracked manifest is not shown by normal git diff. Exit 1 means changes.
+    git -C "$task_repo_dir" diff --no-index -- /dev/null "$task_repo_dir/Brewfile" || [[ $? == 1 ]]
+fi

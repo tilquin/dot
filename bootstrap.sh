@@ -3,7 +3,7 @@
 set -e
 
 DOT_DIR="$HOME/Library/dot"
-typeset -a BREW_FAILURES=()
+typeset -i BREW_BUNDLE_FAILED=0
 typeset -a BOOTSTRAP_FAILURES=()
 
 is_mac() {
@@ -45,35 +45,20 @@ link_if_needed() {
     fi
 }
 
-brew_install_from_file() {
-    local kind=$1
-    local package_file=$2
-    local package
-    local -a install_command
+brew_install_bundle() {
+    local brewfile="$DOT_DIR/Brewfile"
 
-    while IFS= read -r package || [[ -n "$package" ]]
-    do
-        [[ -z "$package" || "$package" == \#* ]] && continue
-
-        if brew list "--$kind" "$package" > /dev/null 2>&1
-        then
-            echo "Already installed: $package"
-        else
-            if [[ "$kind" == cask ]]
-            then
-                install_command=(brew install -y --cask "$package")
-            else
-                install_command=(brew install -y "$package")
-            fi
-
-            echo "Installing $kind: $package"
-            if ! "${install_command[@]}"
-            then
-                echo >&2 "Failed to install $kind: $package"
-                BREW_FAILURES+=("$kind: $package")
-            fi
-        fi
-    done < "$package_file"
+    if [[ ! -f "$brewfile" ]]
+    then
+        echo >&2 "Homebrew manifest is missing: $brewfile"
+        BREW_BUNDLE_FAILED=1
+    elif brew bundle check --file="$brewfile" --no-upgrade
+    then
+        echo "Homebrew bundle is already installed"
+    elif ! brew bundle install --file="$brewfile" --no-upgrade
+    then
+        BREW_BUNDLE_FAILED=1
+    fi
 
     return 0
 }
@@ -136,8 +121,7 @@ clone_if_missing https://github.com/gyllstromk/vim.git "$HOME/.vim"
 
 if is_mac
 then
-    brew_install_from_file formula "$DOT_DIR/settings/brew.freeze.txt"
-    brew_install_from_file cask "$DOT_DIR/settings/brew-cask.freeze.txt"
+    brew_install_bundle
 fi
 
 run_bootstrap_scripts
@@ -149,13 +133,13 @@ done
 
 link_if_needed "$HOME/.vim" "$HOME/.config/nvim"
 
-if (( ${#BREW_FAILURES[@]} > 0 || ${#BOOTSTRAP_FAILURES[@]} > 0 ))
+if (( BREW_BUNDLE_FAILED || ${#BOOTSTRAP_FAILURES[@]} > 0 ))
 then
-    if (( ${#BREW_FAILURES[@]} > 0 ))
+    if (( BREW_BUNDLE_FAILED ))
     then
         echo >&2
-        echo >&2 "These Homebrew packages failed:"
-        printf >&2 '  - %s\n' "${BREW_FAILURES[@]}"
+        echo >&2 "Homebrew bundle installation failed. Retry with:"
+        printf >&2 '  brew bundle install --file="%s/Brewfile" --no-upgrade\n' "$DOT_DIR"
     fi
 
     if (( ${#BOOTSTRAP_FAILURES[@]} > 0 ))
