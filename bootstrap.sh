@@ -4,6 +4,7 @@ set -e
 
 DOT_DIR="$HOME/Library/dot"
 typeset -a BREW_FAILURES=()
+typeset -a BOOTSTRAP_FAILURES=()
 
 is_mac() {
     [[ "$OSTYPE" == darwin* ]]
@@ -77,18 +78,28 @@ brew_install_from_file() {
     return 0
 }
 
-configure_magic_mouse() {
-    local domain
+run_bootstrap_scripts() {
+    local script
+    local -a scripts
 
-    for domain in \
-        com.apple.driver.AppleBluetoothMultitouch.mouse \
-        com.apple.AppleMultitouchMouse
+    scripts=("$DOT_DIR"/bootstrap.d/*.sh(N))
+    for script in "${scripts[@]}"
     do
-        defaults write "$domain" MouseButtonMode -string TwoButtonSwapped
-        defaults write "$domain" UserPreferences -int 1
+        if [[ ! -x "$script" ]]
+        then
+            echo >&2 "Bootstrap script is not executable: $script"
+            BOOTSTRAP_FAILURES+=("${script:t} (not executable)")
+            continue
+        fi
+
+        echo "Running ${script:t}"
+        if ! "$script"
+        then
+            BOOTSTRAP_FAILURES+=("${script:t}")
+        fi
     done
 
-    killall cfprefsd > /dev/null 2>&1 || true
+    return 0
 }
 
 if is_mac
@@ -127,9 +138,9 @@ if is_mac
 then
     brew_install_from_file formula "$DOT_DIR/settings/brew.freeze.txt"
     brew_install_from_file cask "$DOT_DIR/settings/brew-cask.freeze.txt"
-    defaults -currentHost write -g com.apple.keyboard.modifiermapping.0-0-0 -dict 0 -int 2 && hidutil property --set '{"UserKeyMapping":[{"HIDKeyboardModifierMappingSrc":0x700000039,"HIDKeyboardModifierMappingDst":0x7000000E0}]}'
-    configure_magic_mouse
 fi
+
+run_bootstrap_scripts
 
 for file in "$DOT_DIR"/etc/*
 do
@@ -138,11 +149,22 @@ done
 
 link_if_needed "$HOME/.vim" "$HOME/.config/nvim"
 
-if (( ${#BREW_FAILURES[@]} > 0 ))
+if (( ${#BREW_FAILURES[@]} > 0 || ${#BOOTSTRAP_FAILURES[@]} > 0 ))
 then
-    echo >&2
-    echo >&2 "Bootstrap completed, but these Homebrew packages failed:"
-    printf >&2 '  - %s\n' "${BREW_FAILURES[@]}"
+    if (( ${#BREW_FAILURES[@]} > 0 ))
+    then
+        echo >&2
+        echo >&2 "These Homebrew packages failed:"
+        printf >&2 '  - %s\n' "${BREW_FAILURES[@]}"
+    fi
+
+    if (( ${#BOOTSTRAP_FAILURES[@]} > 0 ))
+    then
+        echo >&2
+        echo >&2 "These bootstrap scripts failed:"
+        printf >&2 '  - %s\n' "${BOOTSTRAP_FAILURES[@]}"
+    fi
+
     exit 1
 fi
 
