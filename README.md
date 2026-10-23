@@ -70,10 +70,28 @@ macOS may require re-enabling the app's permissions after rebuilding it.
 ## Private overrides
 
 Keep host-specific configuration outside this repository in
-`~/.config/dot-local/`. The shared Sapling / Mercurial config includes
-`slrc.before` first and `slrc.after` last. Missing files are harmless; later
-settings override earlier ones. Use the local files for host-specific identities,
-repository bookmarks, paths, and pull aliases, not the shared `etc/hgrc`.
+`~/.config/dot-local/`. The shared tmux config sources `tmux.before` first and
+`tmux.after` last. Use the latter for private integrations, environment variables,
+and host-specific commands. macOS clipboard defaults remain in the portable
+`etc/tmux-macosx.conf`; a private overlay can set `copy-command` for another host
+without duplicating the shared Enter and double-click bindings.
+
+Reload tmux configuration in an existing server with:
+
+```sh
+tmux source-file ~/.tmux.conf
+```
+
+The shared Sapling / Mercurial config includes `slrc.before` first and
+`slrc.after` last. Missing files are harmless; later settings override earlier
+ones. The shared config intentionally does not set a commit identity. Set it
+privately in `~/.config/dot-local/slrc.after`, alongside any host-specific
+repository bookmarks, paths, and pull aliases:
+
+```ini
+[ui]
+username = Your Name <you@example.org>
+```
 
 On Sapling installations that use a separate native user config (find it with
 `sl configfile --user`), add `%include ~/.slrc` there to load the shared config
@@ -82,6 +100,10 @@ and its overlays. Keep native host-specific settings outside the repository.
 The shell has equivalent optional `local_before.zshrc` and `local_after.zshrc`
 hooks, which are Git-ignored. Private overlays need to be provisioned separately;
 bootstrap does not generate or copy them.
+
+The external overlays are not tracked by this repository. Git ignore rules do
+not control a separate dotfile sync service; exclude private overlays there too
+if they should stay host-local.
 
 Terminal exports, interactive history, history archives, and history databases
 are excluded from Git. These exclusions do not remove anything from existing

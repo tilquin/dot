@@ -1,7 +1,7 @@
 %include ~/.config/dot-local/slrc.before
 
 [ui]
-username = Karl Gyllstrom <karl.gyllstrom@gmail.com>
+# Set username in a private overlay, not in this shared config.
 ignore.myignore = ~/.hgignore
 ignore = ~/.hgignore
 
