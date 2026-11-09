@@ -30,6 +30,16 @@ alias grep='grep --color=always'
 alias less='less -R'
 alias ls='ls --color=auto'
 
+# Remote hosts often lack Kitty's terminfo. Change TERM only for SSH, not
+# local programs such as Neovim that can use Kitty's terminal features.
+function ssh {
+  if [[ "${TERM-}" == xterm-kitty || "${TERM-}" == kitty ]]; then
+    TERM=xterm-256color command ssh "$@"
+  else
+    command ssh "$@"
+  fi
+}
+
 export PROMPT="%m :: %F{green}%~ %F{reset_color}» "
 
 # Set prompts
