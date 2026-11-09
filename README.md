@@ -13,6 +13,21 @@ Each script can also be run independently, for example:
 
     /bin/zsh -f ~/Library/dot/bootstrap.d/maccy.sh
 
+`bootstrap.d/dock.sh` enables Dock auto-hide on macOS. It restarts the Dock only
+when changing the setting; other Dock preferences are left alone. Run it alone:
+
+    /bin/zsh -f ~/Library/dot/bootstrap.d/dock.sh
+
+`bootstrap.d/menubar.sh` shows Bluetooth and Sound in the macOS menu bar and
+restarts Control Center. Run it alone:
+
+    /bin/zsh -f ~/Library/dot/bootstrap.d/menubar.sh
+
+Run recipe-discovery and Dock tests without changing system settings:
+
+    /bin/zsh -f ~/Library/dot/tests/bootstrap-scripts.zsh
+    /bin/zsh -f ~/Library/dot/tests/bootstrap-dock.zsh
+
 ## Homebrew
 
 Personal macOS packages are declared in `Brewfile`. Bootstrap checks the bundle
