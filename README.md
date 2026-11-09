@@ -2,10 +2,16 @@ Bootstrap my dot files on Mac, Linux, and EC2
 
     /bin/zsh -c "$(curl -fsSL https://raw.githubusercontent.com/tilquin/dot/master/bootstrap.sh)"
 
-`bootstrap.sh` automatically runs every executable `bootstrap.d/*.sh` file.
+`bootstrap.sh` automatically runs every readable `bootstrap.d/*.sh` file with
+`/bin/zsh -f`. These are zsh scripts; executable permissions are not required,
+and shell startup files are not loaded. Run bootstrap itself with zsh, not sh
+or bash:
+
+    /bin/zsh -f ~/Library/dot/bootstrap.sh
+
 Each script can also be run independently, for example:
 
-    ~/Library/dot/bootstrap.d/maccy.sh
+    /bin/zsh -f ~/Library/dot/bootstrap.d/maccy.sh
 
 ## Homebrew
 

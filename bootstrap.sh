@@ -70,15 +70,15 @@ run_bootstrap_scripts() {
     scripts=("$DOT_DIR"/bootstrap.d/*.sh(N))
     for script in "${scripts[@]}"
     do
-        if [[ ! -x "$script" ]]
+        if [[ ! -f "$script" || ! -r "$script" ]]
         then
-            echo >&2 "Bootstrap script is not executable: $script"
-            BOOTSTRAP_FAILURES+=("${script:t} (not executable)")
+            echo >&2 "Bootstrap script is not a readable file: $script"
+            BOOTSTRAP_FAILURES+=("${script:t} (not readable)")
             continue
         fi
 
         echo "Running ${script:t}"
-        if ! "$script"
+        if ! /bin/zsh -f "$script"
         then
             BOOTSTRAP_FAILURES+=("${script:t}")
         fi
